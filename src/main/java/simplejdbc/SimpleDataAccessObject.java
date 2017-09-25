@@ -24,7 +24,7 @@ public class SimpleDataAccessObject {
 	 * @return le nombre d'enregistrements dans la table CUSTOMER
 	 * @throws SQLException
 	 */
-	public int numberOfCustomers() throws SQLException {
+	public int numberOfCustomers() throws DAOException {
 		throw new UnsupportedOperationException("Pas encore implémenté");
 	}
 
@@ -34,7 +34,7 @@ public class SimpleDataAccessObject {
 	 * @return le nombre de bons de commande pour ce client (table PURCHASE_ORDER)
 	 * @throws SQLException
 	 */
-	public int numberOfOrdersForCustomer(int customerId) throws SQLException {
+	public int numberOfOrdersForCustomer(int customerId) throws DAOException {
 		throw new UnsupportedOperationException("Pas encore implémenté");
 	}
 
@@ -45,7 +45,7 @@ public class SimpleDataAccessObject {
 	 * @return l'enregistrement correspondant dans la table CUSTOMER, ou null si pas trouvé
 	 * @throws SQLException
 	 */
-	CustomerEntity findCustomer(int customedID) throws SQLException {
+	CustomerEntity findCustomer(int customedID) throws DAOException {
 		throw new UnsupportedOperationException("Pas encore implémenté");
 	}
 
@@ -56,7 +56,7 @@ public class SimpleDataAccessObject {
 	 * @return la liste des clients habitant dans cet état
 	 * @throws SQLException
 	 */
-	List<CustomerEntity> customersInState(String state) throws SQLException {
+	List<CustomerEntity> customersInState(String state) throws DAOException {
 		throw new UnsupportedOperationException("Pas encore implémenté");
 	}
 

@@ -20,20 +20,20 @@ public class SimpleDataAccessObjectTest {
 	
 	/**
 	 * Test of numberOfCustomers method, of class SimpleDataAccessObject.
-	 * @throws java.sql.SQLException
+	 * @throws DAOException
 	 */
 	@Test
-	public void testNumberOfCustomers() throws SQLException {
+	public void testNumberOfCustomers() throws DAOException {
 		int result = myDAO.numberOfCustomers();
 		assertEquals(13, result);
 	}
 
 	/**
 	 * Test of numberOfOrdersForCustomer method, of class SimpleDataAccessObject.
-	 * @throws java.sql.SQLException
+	 * @throws DAOException
 	 */
 	@Test
-	public void testNumberOfOrdersForCustomer() throws SQLException {
+	public void testNumberOfOrdersForCustomer() throws DAOException {
 		int customerId = 36;
 		int expResult = 2;
 		int result = myDAO.numberOfOrdersForCustomer(customerId);
@@ -42,21 +42,21 @@ public class SimpleDataAccessObjectTest {
 
 	/**
 	 * Test of findCustomer method, of class SimpleDataAccessObject.
-	 * @throws java.sql.SQLException
+	 * @throws DAOException
 	 */
 	@Test
-	public void testFindCustomer() throws SQLException {
-		int customedID = 1;
-		CustomerEntity result = myDAO.findCustomer(customedID);
+	public void testFindCustomer() throws DAOException {
+		int customerID = 1;
+		CustomerEntity result = myDAO.findCustomer(customerID);
 		assertEquals("Jumbo Eagle Corp", result.getName());
 	}
 
 	/**
 	 * Test of customersInState method, of class SimpleDataAccessObject.
-	 * @throws java.sql.SQLException
+	 * @throws DAOException
 	 */
 	@Test
-	public void testCustomersInState() throws SQLException {
+	public void testCustomersInState() throws DAOException {
 		String state = "CA";
 		List<CustomerEntity> result = myDAO.customersInState(state);
 		assertEquals(4, result.size());
