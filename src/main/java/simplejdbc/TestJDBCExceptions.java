@@ -3,7 +3,6 @@ package simplejdbc;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sql.DataSource;
 
 public class TestJDBCExceptions {
 
@@ -12,6 +11,8 @@ public class TestJDBCExceptions {
             Statement stmt = null;
             ResultSet rs = null;
             try {
+                // Pré-chargement du driver, ne devrait pas âtre nécessaire avec des versions plus récentes           
+                Class.forName("org.apache.derby.jdbc.ClientDriver");                  
                 connection = getConnectionWithDriverManager();
                 stmt = connection.createStatement();
                 rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
@@ -23,7 +24,7 @@ public class TestJDBCExceptions {
                     // On fait quelque chose avec l'enregistrement courant
                     System.out.printf("Client %d (%s), email : %s %n", id, name, email);
                 }
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(TestJDBCExceptions.class.getName()).log(Level.SEVERE, null, ex);
                 // On ferme tout
                 if (rs != null)

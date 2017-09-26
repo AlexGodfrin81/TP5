@@ -1,11 +1,12 @@
 package simplejdbc;
 
 import java.sql.*;
-import javax.sql.DataSource;
 
 public class TestJDBC {
 
 	public static void main(String[] args) throws Exception {
+                // Pré-chargement du driver, ne devrait pas âtre nécessaire avec des versions plus récentes           
+                Class.forName("org.apache.derby.jdbc.ClientDriver");            
 		//Connection connection = getConnectionWithDataSource();
 		Connection connection = getConnectionWithDriverManager();
 		// On crée un statement pour exécuter une requête
