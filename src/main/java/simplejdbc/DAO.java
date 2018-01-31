@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
 
-public class SimpleDataAccessObject {
+public class DAO {
 
 	private final DataSource myDataSource;
 
@@ -17,7 +17,7 @@ public class SimpleDataAccessObject {
 	 *
 	 * @param dataSource la source de données à utiliser
 	 */
-	public SimpleDataAccessObject(DataSource dataSource) {
+	public DAO(DataSource dataSource) {
 		this.myDataSource = dataSource;
 	}
 

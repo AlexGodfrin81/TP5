@@ -7,19 +7,19 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class SimpleDataAccessObjectTest {
-	private SimpleDataAccessObject myDAO; // L'objet à tester
+public class DAOTest {
+	private DAO myDAO; // L'objet à tester
 	private DataSource myDataSource; // La source de données à utiliser
 	
 
 	@Before
 	public void setUp() throws SQLException {
 		myDataSource = DataSourceFactory.getDataSource();
-		myDAO = new SimpleDataAccessObject(myDataSource);
+		myDAO = new DAO(myDataSource);
 	}
 	
 	/**
-	 * Test of numberOfCustomers method, of class SimpleDataAccessObject.
+	 * Test of numberOfCustomers method, of class DAO.
 	 * @throws DAOException
 	 */
 	@Test
@@ -29,7 +29,7 @@ public class SimpleDataAccessObjectTest {
 	}
 
 	/**
-	 * Test of numberOfOrdersForCustomer method, of class SimpleDataAccessObject.
+	 * Test of numberOfOrdersForCustomer method, of class DAO.
 	 * @throws DAOException
 	 */
 	@Test
@@ -41,7 +41,7 @@ public class SimpleDataAccessObjectTest {
 	}
 
 	/**
-	 * Test of findCustomer method, of class SimpleDataAccessObject.
+	 * Test of findCustomer method, of class DAO.
 	 * @throws DAOException
 	 */
 	@Test
@@ -52,7 +52,7 @@ public class SimpleDataAccessObjectTest {
 	}
 
 	/**
-	 * Test of customersInState method, of class SimpleDataAccessObject.
+	 * Test of customersInState method, of class DAO.
 	 * @throws DAOException
 	 */
 	@Test
