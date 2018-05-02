@@ -47,8 +47,8 @@ public class DAOTest {
 	 */
 	@Test
 	public void testFindCustomer() throws DAOException {
-		int customedID = 1;
-		CustomerEntity result = myDAO.findCustomer(customedID);
+		int customerID = 1;
+		CustomerEntity result = myDAO.findCustomer(customerID);
 		assertEquals("Jumbo Eagle Corp", result.getName());
 	}
 

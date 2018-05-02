@@ -86,11 +86,11 @@ public class DAO {
 	/**
 	 * Trouver un Customer à partir de sa clé
 	 *
-	 * @param customedID la clé du CUSTOMER à rechercher
+	 * @param customerID la clé du CUSTOMER à rechercher
 	 * @return l'enregistrement correspondant dans la table CUSTOMER, ou null si pas trouvé
 	 * @throws DAOException
 	 */
-	CustomerEntity findCustomer(int customedID) throws DAOException {
+	CustomerEntity findCustomer(int customerID) throws DAOException {
 		throw new UnsupportedOperationException("Pas encore implémenté");
 	}
 
