@@ -12,7 +12,7 @@ public class TestJDBCExceptions {
             ResultSet rs = null;
             try {
                 // Pré-chargement du driver, ne devrait pas âtre nécessaire avec des versions plus récentes           
-                Class.forName("org.apache.derby.jdbc.ClientDriver");                  
+                // Class.forName("org.apache.derby.jdbc.ClientDriver");                  
                 connection = getConnectionWithDriverManager();
                 stmt = connection.createStatement();
                 rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
@@ -24,8 +24,9 @@ public class TestJDBCExceptions {
                     // On fait quelque chose avec l'enregistrement courant
                     System.out.printf("Client %d (%s), email : %s %n", id, name, email);
                 }
-            } catch (Exception ex) {
-                Logger.getLogger(TestJDBCExceptions.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger("JDBC").log(Level.SEVERE, null, ex);
+	    } finally { // Exécuté qu'il y ait des exceptions ou non
                 // On ferme tout
                 if (rs != null)
                     try {

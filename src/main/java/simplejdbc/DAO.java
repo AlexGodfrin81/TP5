@@ -36,11 +36,11 @@ public class DAO {
 		try (Connection connection = myDataSource.getConnection(); // Ouvrir une connexion
 			Statement stmt = connection.createStatement(); // On crée un statement pour exécuter une requête
 			ResultSet rs = stmt.executeQuery(sql) // Un ResultSet pour parcourir les enregistrements du résultat
-			) {
-			if (rs.next()) { // Pas la peine de faire while, il y a 1 seul enregistrement
-				// On récupère le champ NUMBER de l'enregistrement courant
-				result = rs.getInt("NUMBER");
-			}
+		) {
+			rs.next(); // Pas la peine de faire while, il y a 1 seul enregistrement
+			// On récupère le champ NUMBER de l'enregistrement courant
+			result = rs.getInt("NUMBER");
+
 		} catch (SQLException ex) {
 			Logger.getLogger("DAO").log(Level.SEVERE, null, ex);
 			throw new DAOException(ex.getMessage());
@@ -48,9 +48,10 @@ public class DAO {
 
 		return result;
 	}
-	
+
 	/**
 	 * Detruire un enregistrement dans la table CUSTOMER
+	 *
 	 * @param customerId la clé du client à détruire
 	 * @return le nombre d'enregistrements détruits (1 ou 0 si pas trouvé)
 	 * @throws DAOException
@@ -59,19 +60,18 @@ public class DAO {
 
 		// Une requête SQL paramétrée
 		String sql = "DELETE FROM CUSTOMER WHERE CUSTOMER_ID = ?";
-		try (   Connection connection = myDataSource.getConnection();
-			PreparedStatement stmt = connection.prepareStatement(sql)
-                ) {
-                        // Définir la valeur du paramètre
+		try (Connection connection = myDataSource.getConnection();
+			PreparedStatement stmt = connection.prepareStatement(sql)) {
+			// Définir la valeur du paramètre
 			stmt.setInt(1, customerId);
-			
+
 			return stmt.executeUpdate();
 
-		}  catch (SQLException ex) {
+		} catch (SQLException ex) {
 			Logger.getLogger("DAO").log(Level.SEVERE, null, ex);
 			throw new DAOException(ex.getMessage());
 		}
-	}	
+	}
 
 	/**
 	 *
