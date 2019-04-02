@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class TestJDBC {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws Exception {
                 // Pré-chargement du driver, ne devrait pas âtre nécessaire avec des versions plus récentes           
                 //Class.forName("org.apache.derby.jdbc.ClientDriver");            
 		//Connection connection = getConnectionWithDataSource();
